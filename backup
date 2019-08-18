@@ -16,4 +16,4 @@ cd ~/Documents/Backup/
 #Git Commit and Push
 git add .
 git commit -m "${DATE}"
-git push
+git push origin master
