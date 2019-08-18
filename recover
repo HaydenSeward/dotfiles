@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm ~/.config/i3/
+cp ~/Documents/Backup/i3 ~/.config/i3
+rm ~/.config/polybar 
+cp ~/Documents/Backup/polybar ~/.config/polybar
+rm ~/.config/nvim/init.vim
+cp ~/Documents/Backup/nvim ~/.config/nvim/init.vim
