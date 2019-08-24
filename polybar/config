@@ -30,14 +30,19 @@ module-margin = 1
 override-redirect = true
 font-0 = "Tamsyn:pixelsize=8.5;3
 font-1 = "fontawesome:pixelsize=11;3"
-width = 5.5%
+width = 6.5%
 height = 2%
 background = #2E3440
-modules-center = blue wifi battery
-offset-x = 94%
+padding-right = 2
+modules-right = blue wifi battery
+offset-x = 93%
 offset-y = .3%
 radius = 10
 wm-restack = i3
+pseudo-transparency = true
+tray-position = center
+tray-transparent = true
+tray-offset-x = -44.5
 
 [module/time]
 type = internal/date

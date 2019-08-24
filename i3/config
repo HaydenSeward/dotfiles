@@ -232,3 +232,4 @@ new_window 1pixel
 exec compton 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec feh --bg-scale ~/Downloads/small-memory-lp-1920x1080.jpg
+exec_always indicator-sound-switcher
