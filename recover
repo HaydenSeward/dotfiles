@@ -9,5 +9,5 @@ sudo cp -r $PWD/i3 ~/.config/i3
 sudo rm -r ~/.config/polybar 
 sudo cp -r $PWD/polybar ~/.config/polybar
 
-sudo rm ~/.config/nvim/init.vim
-sudo cp $PWD/nvim ~/.config/nvim/init.vim
+sudo rm ~/.config/nvim/
+sudo cp $PWD/nvim ~/.config/nvim/

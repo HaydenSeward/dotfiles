@@ -12,7 +12,7 @@ sudo rm -r $PWD/i3
 sudo cp -r ~/.config/i3/ $PWD/i3/
 sudo rm -r $PWD/polybar/
 sudo cp -r ~/.config/polybar/ $PWD/polybar
-sudo rm -r $PWD/nvim/init.vim
+sudo rm -r $PWD/nvim/
 sudo cp -r ~/.config/nvim/ $PWD/nvim/
 
 # cd Into The Git Repo
