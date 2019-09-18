@@ -2,18 +2,24 @@
 
 DATE="$(date +"%m-%d-%y")"
 
+
 # Copy Config Files To Git Repo
-sudo rm -r ~/Documents/Backup/i3
-sudo cp -r ~/.config/i3/ ~/Documents/Backup/i3/
-sudo rm -r ~/Documents/Backup/polybar/
-sudo cp -r ~/.config/polybar/ ~/Documents/Backup/polybar
-sudo rm -r ~/Documents/Backup/nvim/init.vim
-sudo cp -r ~/.config/nvim/init.vim ~/Documents/Backup/nvim/init.vim
+sudo rm $PWD/background.png
+sudo cp ~/Pictures/background.png $PWD/background.png
+sudo rm -r $PWD/alacritty/
+sudo cp -r ~/.config/alacritty/ $PWD/alacritty
+sudo rm -r $PWD/i3
+sudo cp -r ~/.config/i3/ $PWD/i3/
+sudo rm -r $PWD/polybar/
+sudo cp -r ~/.config/polybar/ $PWD/polybar
+sudo rm -r $PWD/nvim/init.vim
+sudo cp -r ~/.config/nvim/init.vim $PWD/nvim/init.vim
 
 # cd Into The Git Repo
-cd ~/Documents/Backup/
+cd $PWD
 
 #Git Commit and Push
 git add .
 git commit -m "${DATE}"
 git push origin master
+

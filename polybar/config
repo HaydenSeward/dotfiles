@@ -26,23 +26,30 @@ wm-restack = i3
 offset-x = 43%
 
 [bar/right]
+tray-padding = 2
 module-margin = 1
 override-redirect = true
 font-0 = "Tamsyn:pixelsize=8.5;3
 font-1 = "fontawesome:pixelsize=11;3"
-width = 6.5%
+width = 7%
 height = 2%
 background = #2E3440
 padding-right = 2
-modules-right = blue wifi battery
-offset-x = 93%
+padding-left = 2
+modules-right = wifi battery
+offset-x = 91.5%
 offset-y = .3%
 radius = 10
 wm-restack = i3
-pseudo-transparency = true
 tray-position = center
 tray-transparent = true
-tray-offset-x = -44.5
+tray-offset-x = -37
+
+
+[module/space]
+type = custom/text
+content = "  "
+
 
 [module/time]
 type = internal/date

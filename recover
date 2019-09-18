@@ -1,8 +1,13 @@
 #!/bin/bash
 
+sudo rm ~/Pictures/background.png 
+sudo cp $PWD/backround.png ~/Pictures/background.png
+
 sudo rm -r ~/.config/i3/
-sudo cp -r ~/Documents/Backup/i3 ~/.config/i3
+sudo cp -r $PWD/i3 ~/.config/i3
+
 sudo rm -r ~/.config/polybar 
-sudo cp -r ~/Documents/Backup/polybar ~/.config/polybar
+sudo cp -r $PWD/polybar ~/.config/polybar
+
 sudo rm ~/.config/nvim/init.vim
-sudo cp ~/Documents/Backup/nvim ~/.config/nvim/init.vim
+sudo cp $PWD/nvim ~/.config/nvim/init.vim
