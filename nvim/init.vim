@@ -1,37 +1,46 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'cocopon/pgmnt.vim'
-Plug 'cocopon/iceberg.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'milkypostman/vim-togglelist'
+Plug 'racer-rust/vim-racer'
 Plug 'arcticicestudio/nord-vim'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'neomake/neomake'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
+set cmdheight=2
 set hidden
 
-let g:OmniSharp_server_use_mono = 1
+call neomake#configure#automake('w')
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-    \ }
+tnoremap <Esc> <C-\><C-n>
+let mapleader = ","
+let g:deoplete#enable_at_startup = 1
+let g:racer_cmd = "~/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-autocmd BufReadPost *.rs setlocal filetype=rust
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Required for operations modifying multiple buffers like rename.
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-set number
-colorscheme nord
+noremap <leader>y :%y+<CR>
+noremap <leader>z :Files<CR>
+noremap <leader>a :bprevious<CR>
+noremap <leader>s :bnext<CR>
+noremap q :w <CR>
+"noremap w :wq <CR>
+noremap Z :!cargo run<CR>
